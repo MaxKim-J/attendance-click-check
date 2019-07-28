@@ -1,0 +1,7 @@
+<h1>클릭 출결</h1>
+
+<form action = "{% url 'attendance:result' status.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="name"/>
+    <input type="submit" name="attendance" value="출석하기">
+</form>

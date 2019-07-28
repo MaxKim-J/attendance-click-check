@@ -1,0 +1,26 @@
+<h1>출결결과</h1>
+
+<h2>몇시까지 와야되져?</h2>
+{{ status.status_time }}
+<h2>오늘은 뭐하는 날?</h2>
+{{ status.attend_name }}
+<br/>
+<br/>
+
+<table>
+    <thead>
+        <th>이름</th>
+        <th>&nbsp;</th>
+        <th>도착시간</th>
+
+    </thead>
+    <tbody>
+        {% for attend in new_attend %}
+            <tr>
+                <td>{{ attend.user_name }}</td>
+                <td>&nbsp;</td>
+                <td>{{ attend.pub_date }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
