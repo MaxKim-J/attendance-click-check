@@ -1,25 +1,24 @@
 <h1>출결결과</h1>
 
-<h2>몇시까지 와야되져?</h2>
-{{ status.status_time }}
-<h2>오늘은 뭐하는 날?</h2>
-{{ status.attend_name }}
+<h2>몇 시까지 오기로 했죠?</h2>
+<h3>{{ status.status_time|time:'H:i' }}<small> 까지요!</small></h3>
+<h2>오늘은 뭐하는 날이에요?</h2>
+<h3>{{ status.attend_name }} <small>하는 날이에요!</small></h3>
 <br/>
-<br/>
-
-<table>
-    <thead>
+<table style="text-align: center; border: 1px solid darkgrey;">
+    <h2>출석현황</h2>
+    <thead style="margin: 10px 30px">
         <th>이름</th>
-        <th>&nbsp;</th>
         <th>도착시간</th>
-
+        <th>늦은시간</th>
     </thead>
     <tbody>
         {% for attend in new_attend %}
             <tr>
-                <td>{{ attend.user_name }}</td>
-                <td>&nbsp;</td>
-                <td>{{ attend.pub_date }}</td>
+                <td style="padding:5px 15px">{{ attend.user_name }}</td>
+                <td style="padding:5px 15px">{{ attend.pub_date|time:'H:i' }}</td>
+                {% if attend.late_time > 0 %}<td style="background-color: crimson; padding:5px 15px">+{{ attend.late_time }}분</td>{% endif %}
+                {% if attend.late_time <= 0 %}<td style="background-color: mediumspringgreen; padding:5px 15px">정상출석</td>{% endif %}
             </tr>
         {% endfor %}
     </tbody>

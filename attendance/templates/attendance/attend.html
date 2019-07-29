@@ -1,7 +1,10 @@
 <h1>클릭 출결</h1>
 
+<p>오늘은 <strong>{{ status.attend_name }}</strong> 하려고 모였어요</p>
+
 <form action = "{% url 'attendance:result' status.id %}" method="post">
     {% csrf_token %}
-    <input type="text" name="name"/>
-    <input type="submit" name="attendance" value="출석하기">
+    <input type="text" name="name" placeholder="이름 입력하고 출석하기"/>
+    <input type="submit" name="attendance" value="출석!"><br/><br/>
+    <a href = "{% url 'attendance:state' %}">출석시간 설정하기(관리자)</a>
 </form>

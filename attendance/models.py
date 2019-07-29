@@ -15,6 +15,7 @@ class Comers(models.Model):
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100)
     pub_date = models.DateTimeField("Join Time")
+    late_time = models.IntegerField(max_length=100)
 
     def __str__(self):
         return self.user_name

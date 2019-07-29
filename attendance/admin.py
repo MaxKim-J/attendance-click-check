@@ -6,9 +6,9 @@ from .models import Comers, Status
 
 @admin.register(Status)
 class AttendAdmin(admin.ModelAdmin):
-    list_display = ('attend_name', 'status_time')
+    list_display = ('id', 'attend_name', 'status_time')
 
 
 @admin.register(Comers)
 class AttendAdmin(admin.ModelAdmin):
-    list_display = ('user_name', 'pub_date')
+    list_display = ('user_name', 'pub_date', 'late_time')

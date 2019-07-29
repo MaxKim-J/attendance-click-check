@@ -1,0 +1,11 @@
+<h1>출석 만들기</h1>
+
+<p>관리자만 작성해주세요</p>
+<form action = "#" method="post">
+    {% csrf_token %}
+    출석 이름<input type="text" name="attend_name"/><br/>
+    시<input type="text" name="hour"/><br/>
+    분<input type="text" name="minute"/><br/>
+    <input type="submit" name="attendance" value="설정하기"><br/>
+    <a href = "{% url 'attendance:state' %}">출석시간 설정하기(관리자)</a>
+</form>
