@@ -1,7 +1,6 @@
 from datetime import datetime, date, time
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from attendance.models import Status
-from django.utils.timesince import timesince
 
 
 # Create your views here.
